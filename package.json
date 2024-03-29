@@ -46,6 +46,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.19",
     "bumpp": "^8.2.1",
+    "daisyui": "4.9.0",
     "eslint": "^8.57.0",
     "husky": "^8.0.3",
     "lint-staged": "^12.5.0",
