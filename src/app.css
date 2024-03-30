@@ -6,3 +6,7 @@
   height: 2.5em;
   min-height: 2.5em;
 }
+
+.btn-min-width {
+  min-width: 100px;
+}
