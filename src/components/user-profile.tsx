@@ -29,7 +29,7 @@ export const UserProfile: React.FC = () => {
   };
 
   return (
-    <div className="card bordered w-full max-w-md mx-auto bg-neutral p-4 m-4">
+    <div className="card bordered w-full max-w-md mx-auto bg-neutral p-4 m-4 animate-up">
       <h2 className="text-center text-xl font-semibold mb-8">User profile</h2>
       {isEditing ? (
         <form>

@@ -1,6 +1,6 @@
 export const UserStat: React.FC = () => {
   return (
-    <div className="card bg-base-300 mx-auto max-w-3xl mt-8">
+    <div className="card bg-base-300 mx-auto max-w-3xl mt-8 animate-up">
       <div className="stats shadow">
         <div className="stat">
           <div className="stat-figure text-primary">
@@ -43,7 +43,11 @@ export const UserStat: React.FC = () => {
               fill="none"
               viewBox="0 0 24 24"
               className="inline-block w-8 h-8 stroke-current">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
           <div className="stat-value">86%</div>
