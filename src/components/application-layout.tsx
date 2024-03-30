@@ -14,7 +14,7 @@ const menus = [
 
 export const ApplicationLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <header className="bg-base-200 p-4">
         <Container className="flex justify-between items-center">
           <h1 className="text-lg font-semibold">{window.blocklet?.appName}</h1>
@@ -27,8 +27,10 @@ export const ApplicationLayout: React.FC<{ children: React.ReactNode }> = ({ chi
           </menu>
         </Container>
       </header>
-      <div>{children}</div>
-      <footer>footer</footer>
-    </>
+      <main className="grow">{children}</main>
+      <footer className="bg-base-300">
+        <Container className="py-4">Sample footer</Container>
+      </footer>
+    </div>
   );
 };
