@@ -7,8 +7,12 @@
   min-height: 2.5em;
 }
 
+.input {
+  height: 2.5em;
+}
+
 .btn-min-width {
-  min-width: 100px;
+  min-width: 140px;
 }
 
 .animate-up {
@@ -44,5 +48,29 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+.cus-card-gradient {
+  background: linear-gradient(66deg, rgb(36 45 49) 0%, rgb(89 97 114) 100%);
+}
+
+.cus-bg-gradient {
+  background: linear-gradient(-45deg, hsl(0deg 40% 65%), hsl(180deg 40% 65%), hsl(0deg 40% 65%));
+  background-size: 400% 400%;
+  animation: bgGradient 15s ease infinite;
+}
+
+@keyframes bgGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }

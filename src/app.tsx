@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import './app.css';
 import Home from './pages/home.tsx';
 import About from './pages/about.tsx';
+import { UserProvider } from './context/user-context.tsx';
 
 function App() {
   return (
@@ -22,8 +23,10 @@ export default function WrappedApp() {
   const basename = window?.blocklet?.prefix || '/';
 
   return (
-    <Router basename={basename}>
-      <App />
-    </Router>
+    <UserProvider>
+      <Router basename={basename}>
+        <App />
+      </Router>
+    </UserProvider>
   );
 }
