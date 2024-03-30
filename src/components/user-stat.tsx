@@ -1,7 +1,7 @@
 export const UserStat: React.FC = () => {
   return (
-    <div className="card bg-base-300 mx-auto max-w-3xl mt-8 animate-up">
-      <div className="stats shadow">
+    <div className="card border border-gray-700 shadow bg-base-300 mx-auto max-w-3xl mt-8 animate-up">
+      <div className="stats shadow flex flex-col sm:inline-grid">
         <div className="stat">
           <div className="stat-figure text-primary">
             <svg
