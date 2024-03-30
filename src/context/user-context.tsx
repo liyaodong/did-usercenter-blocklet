@@ -4,9 +4,13 @@ import { z } from 'zod';
 const AUTHENTICATION_STORAGE_KEY = '__USER_PROFILE';
 
 export const userSchema = z.object({
-  username: z.string().min(1, 'User name is required').max(20, 'User name is too long'),
-  email: z.string().email('Invalid email address').min(1, 'Email is required').max(30, 'Email is too long'),
-  phone: z.string().min(1, 'Phone is required').max(20, 'Phone is too long'),
+  username: z.string().min(1, 'User name is required').max(20, 'Username cannot exceed 20 characters'),
+  email: z
+    .string()
+    .email('Invalid email address')
+    .min(1, 'Email is required')
+    .max(30, 'Email cannot exceed 30 characters'),
+  phone: z.string().min(1, 'Phone is required').max(20, 'Phone cannot exceed 20 characters'),
 });
 
 export type UserProfileType = z.infer<typeof userSchema>;
