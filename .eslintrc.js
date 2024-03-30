@@ -8,5 +8,6 @@ module.exports = {
   },
   rules: {
     'import/prefer-default-export': 'off',
+    '@typescript-eslint/comma-dangle': 'off',
   },
 };

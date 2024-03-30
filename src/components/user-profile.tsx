@@ -1,5 +1,6 @@
-import { PhoneIcon } from '@heroicons/react/24/outline';
+import clsx from 'clsx';
 import { useState } from 'react';
+import { PhoneIcon } from '@heroicons/react/24/outline';
 
 const defaultProfile = {
   username: 'Anonymous',
@@ -12,7 +13,7 @@ export const UserProfile: React.FC = () => {
   const [profile, setProfile] = useState(defaultProfile);
 
   const handleEdit = () => {
-    setIsEditing(true);
+    setIsEditing((val) => !val);
   };
 
   const handleSave = () => {
@@ -29,27 +30,15 @@ export const UserProfile: React.FC = () => {
   };
 
   return (
-    <div className="card bordered w-full max-w-md mx-auto bg-neutral p-4 m-4 animate-up">
-      <h2 className="text-center text-xl font-semibold mb-8">User profile</h2>
-      {isEditing ? (
-        <form>
-          <label>
-            Username:
-            <input type="text" name="username" value={profile.username} onChange={handleChange} />
-          </label>
-          <label>
-            Email:
-            <input type="email" name="email" value={profile.email} onChange={handleChange} />
-          </label>
-          <label>
-            Phone:
-            <input type="tel" name="phone" value={profile.phone} onChange={handleChange} />
-          </label>
-          <button type="button" onClick={handleSave}>
-            Save
-          </button>
-        </form>
-      ) : (
+    <div className="m-4 animate-up [perspective:1000px] relative">
+      <div
+        className={clsx(
+          'card bordered px-4 py-6 max-w-md mx-auto bg-neutral relative transition-all duration-500 [transform-style:preserve-3d]',
+          {
+            '[transform:rotateY(180deg)]': isEditing,
+          }
+        )}>
+        <h2 className="text-center text-xl font-semibold mb-8">User profile</h2>
         <div className="flex items-center flex-col">
           <div className="avatar">
             <div className="w-24 rounded-full border">
@@ -71,7 +60,33 @@ export const UserProfile: React.FC = () => {
             </button>
           </div>
         </div>
-      )}
+        <div
+          className={clsx(
+            'absolute left-0 top-0 h-full w-full rounded-xl bg-base-100/85 text-center text-slate-200',
+            '[transform:rotateY(180deg)] [backface-visibility:hidden] transition-all',
+            {
+              'backdrop-blur-sm': isEditing,
+            }
+          )}>
+          <form>
+            <label>
+              Username:
+              <input type="text" name="username" value={profile.username} onChange={handleChange} />
+            </label>
+            <label>
+              Email:
+              <input type="email" name="email" value={profile.email} onChange={handleChange} />
+            </label>
+            <label>
+              Phone:
+              <input type="tel" name="phone" value={profile.phone} onChange={handleChange} />
+            </label>
+            <button type="button" onClick={handleSave}>
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
