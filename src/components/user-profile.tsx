@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { PhoneIcon } from '@heroicons/react/24/outline';
+import { UserProfileType, UserProfileForm } from './user-profile-form.tsx';
 
-const defaultProfile = {
+const defaultProfile: UserProfileType = {
   username: 'Anonymous',
   email: 'sample@example.com',
   phone: '110119120',
@@ -16,24 +17,11 @@ export const UserProfile: React.FC = () => {
     setIsEditing((val) => !val);
   };
 
-  const handleSave = () => {
-    setIsEditing(false);
-    // Save the updated profile data
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setProfile((prevProfile) => ({
-      ...prevProfile,
-      [name]: value,
-    }));
-  };
-
   return (
     <div className="m-4 animate-up [perspective:1000px] relative">
       <div
         className={clsx(
-          'card bordered px-4 py-6 max-w-md mx-auto bg-neutral relative transition-all duration-500 [transform-style:preserve-3d]',
+          'card shadow bordered px-4 py-6 max-w-md mx-auto bg-neutral relative transition-all duration-500 [transform-style:preserve-3d]',
           {
             '[transform:rotateY(180deg)]': isEditing,
           }
@@ -68,23 +56,13 @@ export const UserProfile: React.FC = () => {
               'backdrop-blur-sm': isEditing,
             }
           )}>
-          <form>
-            <label>
-              Username:
-              <input type="text" name="username" value={profile.username} onChange={handleChange} />
-            </label>
-            <label>
-              Email:
-              <input type="email" name="email" value={profile.email} onChange={handleChange} />
-            </label>
-            <label>
-              Phone:
-              <input type="tel" name="phone" value={profile.phone} onChange={handleChange} />
-            </label>
-            <button type="button" onClick={handleSave}>
-              Save
-            </button>
-          </form>
+          <UserProfileForm
+            onSubmit={(p) => {
+              setIsEditing((editing) => !editing);
+              setProfile(p);
+            }}
+            profile={profile}
+          />
         </div>
       </div>
     </div>
