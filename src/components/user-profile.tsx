@@ -21,7 +21,7 @@ export const UserProfile: React.FC = () => {
     <div className="m-4 animate-up [perspective:1000px] relative">
       <div
         className={clsx(
-          'card shadow bordered px-4 py-6 max-w-md mx-auto bg-neutral relative transition-all duration-500 [transform-style:preserve-3d]',
+          'card shadow bordered px-4 py-8 max-w-md mx-auto bg-neutral relative transition-all duration-500 [transform-style:preserve-3d]',
           {
             '[transform:rotateY(180deg)]': isEditing,
           }
