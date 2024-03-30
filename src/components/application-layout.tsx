@@ -31,8 +31,12 @@ export const ApplicationLayout: React.FC<{ children: React.ReactNode }> = ({ chi
         </Container>
       </header>
       <main className="grow">{children}</main>
-      <footer className="bg-base-300">
-        <Container className="py-4">Sample footer</Container>
+      <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+        <aside>
+          <Container className="py-4">
+            <p>Copyright © 2024 - All right reserved by XXX Ltd</p>
+          </Container>
+        </aside>
       </footer>
     </div>
   );
